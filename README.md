@@ -1,6 +1,11 @@
 # Feelestate
 
+This project contains a component to show the used and remaining space on the server for each client.
+
+## Installation
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+Clone this repo and run npm install in the project folder. Then run ng serve --open
 
 ## Development server
 
