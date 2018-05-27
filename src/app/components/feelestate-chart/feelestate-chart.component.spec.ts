@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ChartStoragespaceComponent } from './chart-storagespace.component';
+import { FeelestateChartComponent } from './feelestate-chart.component';
 
-describe('ChartStoragespaceComponent', () => {
-  let component: ChartStoragespaceComponent;
-  let fixture: ComponentFixture<ChartStoragespaceComponent>;
+describe('FeelestateChartComponent', () => {
+  let component: FeelestateChartComponent;
+  let fixture: ComponentFixture<FeelestateChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ChartStoragespaceComponent ]
+      declarations: [ FeelestateChartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ChartStoragespaceComponent);
+    fixture = TestBed.createComponent(FeelestateChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,18 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { AppRoutingModule,routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChartStoragespaceComponent } from './components/chart-storagespace/chart-storagespace.component';
+import { FeelestateChartComponent } from './components/feelestate-chart/feelestate-chart.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents
+    FeelestateChartComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]
