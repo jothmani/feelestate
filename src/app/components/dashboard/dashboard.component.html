@@ -1,3 +1,9 @@
-<feelestate-chart title="Storage space (Megabyte)"
-                  used_sp="2500" remaining_sp="4500">
-</feelestate-chart>
+<div *ngIf="dataSizeModel | async as ds">
+
+  <feelestate-chart title="Storage data size (Megabyte)"
+                    used_sp="{{ ds.usedDataSize }}" remaining_sp="{{ ds.remainingDataSize }}">
+  </feelestate-chart>
+
+  <h4>Used data size(mb): {{ ds.usedDataSize }}</h4>
+  <h4>Remaining space(mb): {{ ds.remainingDataSize }}</h4>
+</div>
