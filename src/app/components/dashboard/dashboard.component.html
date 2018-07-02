@@ -4,6 +4,7 @@
                     used_sp="{{ ds.usedDataSize }}" remaining_sp="{{ ds.remainingDataSize }}">
   </feelestate-chart>
 
-  <h4>Used data size(mb): {{ ds.usedDataSize }}</h4>
-  <h4>Remaining space(mb): {{ ds.remainingDataSize }}</h4>
+  <pre>
+    {{ds|json}}
+  </pre>
 </div>

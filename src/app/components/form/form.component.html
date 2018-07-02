@@ -1,18 +1,36 @@
+<div *ngIf="success" class="alert alert-success" role="alert">
+  Data size values submitted successfully!
+</div>
+
+<form [formGroup]="dataSizeForm" novalidate (ngSubmit)="updateDS();">
   <p class="h4 text-left py-4">Storage space data (megabytes)</p>
   <div class="form-group row">
-    <label for="used" class="col-sm-2 col-form-label">Used</label>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" id="used" placeholder="Used" #usedDataSize />
+    <label for="used" class="col-sm-2 col-form-label required">Used</label>
+    <div class="col-sm-3">
+      <input type="text" id="used" pattern="[0-9]*" class="form-control" placeholder="used" formControlName="usedDataSize">
+      <div class="alert" *ngIf="!dataSizeForm.controls['usedDataSize'].valid && dataSizeForm.controls['usedDataSize'].touched">{{ alertMsg }}</div>
     </div>
   </div>
   <div class="form-group row">
-    <label for="remaining" class="col-sm-2 col-form-label">Remaining </label>
-    <div class="col-sm-4">
-      <input type="text" class="form-control" id="remaining" placeholder="Remaining" #remainingDataSize />
+    <label for="remaining" class="col-sm-2 col-form-label required">Remaining </label>
+    <div class="col-sm-3">
+      <input type="text" id="remaining" pattern="[0-9]*" class="form-control" placeholder="remaining" formControlName="remainingDataSize">
+      <div class="alert" *ngIf="!dataSizeForm.controls['remainingDataSize'].valid && dataSizeForm.controls['remainingDataSize'].touched">{{ alertMsg }}</div>
     </div>
   </div>
   <div class="form-group row">
     <div class="col-sm-4">
-      <button (click)="updateDS(usedDataSize.value,remainingDataSize.value)" class="btn btn-primary btn-md">Submit</button>
+       <button type="submit" class="btn btn-primary btn-md" [disabled]="!dataSizeForm.valid">Submit</button>
+       <button type="button" class="btn btn-primary btn-md" (click)="reset();" [disabled]="!dataSizeForm.valid">Reset</button>
     </div>
   </div>
+
+  <pre>
+    {{dataSizeForm.value|json}}
+  </pre>
+</form>
+
+
+
+
+
