@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs/Observable';
-import { AppState } from '../../store/app.state';
 import { DataSizeModel } from '../../model/datasize.model';
-import { UpdateDataSizeAction } from '../../store/actions/datasize.actions';
 import { FormControl, FormGroup , FormBuilder ,Validators } from '@angular/forms';
+import  { DatasizeService } from '../../services/datasize.service';
 
 @Component({
   selector: 'app-form',
@@ -18,7 +15,7 @@ export class FormComponent {
   public success:boolean = false;
   public alertMsg:string = "Field is required and is numeric";
 
-  constructor(private store: Store<AppState>, public formBuilder:FormBuilder) {
+  constructor(public formBuilder:FormBuilder, public dsService:DatasizeService) {
     this.dataSizeForm = this.formBuilder.group({
       usedDataSize:[null,Validators.required],
       remainingDataSize:[null,Validators.required]
@@ -27,7 +24,7 @@ export class FormComponent {
 
   public updateDS() {
     this.updatedDataSize = <DataSizeModel>this.dataSizeForm.value;
-    this.store.dispatch(new UpdateDataSizeAction(this.updatedDataSize));
+    this.dsService.updateDS(this.updatedDataSize);
     this.success = true;
     this.reset();
   }

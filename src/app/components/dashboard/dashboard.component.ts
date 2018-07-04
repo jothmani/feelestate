@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { DataSizeModel } from '../../model/datasize.model';
-import { AppState } from '../../store/app.state';
 import { ChangeDetectorRef } from '@angular/core';
+import  { DatasizeService } from '../../services/datasize.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,12 +14,12 @@ export class DashboardComponent implements OnInit {
 
   public dataSizeModel: Observable<DataSizeModel>;
 
-  constructor(private store: Store<AppState>, private changeDetector: ChangeDetectorRef) {
-    this.dataSizeModel = this.store.select(x => x.dataSize);
+  constructor(private dsService:DatasizeService, private changeDetector: ChangeDetectorRef) {
+    this.dataSizeModel =  this.dsService.getDS();
   }
 
   ngOnInit() {
-    this.store.subscribe(x => console.log(x));
+   // this.store.subscribe(x => console.log(x));
     this.changeDetector.detectChanges(); // @Robert I used this to eliminate ExpressionChangedAfterItHasBeenCheckedError or enableProdMode solved the problem
   }
 

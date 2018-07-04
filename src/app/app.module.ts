@@ -9,6 +9,7 @@ import { ChartComponent } from './components/chart/chart.component';
 import { StoreModule } from '@ngrx/store';
 import { dataSizeReducer } from './store/reducers/datasize.reducer';
 import { HttpClientModule } from '@angular/common/http';
+import { DatasizeService } from './services/datasize.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     })
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [DatasizeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
