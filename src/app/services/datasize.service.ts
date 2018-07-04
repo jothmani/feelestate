@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { OnInit } from '@angular/core';
 
 @Injectable()
-export class DatasizeService implements OnInit {
+export class DatasizeService {
 
   constructor(private store: Store<AppState>) { }
 
@@ -25,11 +25,6 @@ export class DatasizeService implements OnInit {
    */
   public updateDS(updatedDataSize:DataSizeModel) {
     this.store.dispatch(new UpdateDataSizeAction(updatedDataSize));
-  }
-
-  ngOnInit() {
-    this.store.subscribe(x => console.log(x));
-    console.log("ddddddd");
   }
 
 }
